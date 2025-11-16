@@ -8,7 +8,7 @@ const defaultFoods = [
     "重庆小面",
     "河南烩面",
     "烤盘饭",
-    "卤汁肴",
+    "匠心卤",
     "民族窗口",
     "智园小站",
     "水煮鱼",
@@ -21,6 +21,7 @@ const defaultFoods = [
     "螺蛳粉",
     "吾里香",
     "东门小吃街",
+    "越苑那个米线",
     "尝尝新的"
 ];
 
@@ -34,7 +35,7 @@ const foodIcons = {
     '重庆小面': '🌶️',
     '河南烩面': '🍜',
     '烤盘饭': '🔥',
-    '卤汁肴': '🥘',
+    '匠心卤': '🥘',
     '民族窗口': '🏮',
     '智园小站': '🍱',
     '水煮鱼': '🐟',
@@ -47,6 +48,7 @@ const foodIcons = {
     '螺蛳粉': '🍜',
     '吾里香': '🍛',
     "东门小吃街":'🤓☝️',
+    '越苑那个米线': '🍜',
     '尝尝新的': '🎯'
 };
 
@@ -61,11 +63,8 @@ class FoodChooser {
     init() {
         // 绑定事件
         document.getElementById('choose-btn').addEventListener('click', () => this.chooseFood());
-        document.getElementById('add-btn').addEventListener('click', () => this.addCustomFood());
         document.getElementById('list-btn').addEventListener('click', () => this.showFoodList());
-        document.getElementById('clear-btn').addEventListener('click', () => this.clearCustomFoods());
         document.getElementById('reset-btn').addEventListener('click', () => this.resetToDefault());
-        document.getElementById('search-food').addEventListener('input', (e) => this.searchFoods(e.target.value));
 
         // 模态框关闭事件
         document.querySelector('.close').addEventListener('click', () => this.closeModal());
