@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今天吃什么？｜zxr的专属食物选择器</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>今天吃什么？</h1>
+                <p>其实是这个人总想不到吃什么所以做了这个</p>
+                <div id="date-display" class="date-display"></div>
+            </div>
+        </header>
+
+        <main>
+            <div class="result-container">
+                <div id="result" class="result-box">
+                    <div class="food-icon" id="food-icon">🎲</div>
+                    <span id="food-text">点击下方按钮开始</span>
+                    <div id="special-tag" class="special-tag"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="choose-btn" class="btn primary">
+                    <i class="fas fa-random"></i>
+                    随机选择
+                </button>
+                <div class="secondary-buttons">
+                    <button id="add-btn" class="btn secondary">
+                        <i class="fas fa-plus"></i>
+                        添加食物
+                    </button>
+                    <button id="list-btn" class="btn secondary">
+                        <i class="fas fa-list"></i>
+                        查看列表
+                    </button>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #f4af1b;">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>周末特惠</h3>
+                    <p>周末麦当劳概率提升</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #66d47e;">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>历史记录</h3>
+                    <p>查看最近的选择</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #ddf55a;">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>个性化</h3>
+                    <p>自定义你的美食列表</p>
+                </div>
+            </div>
+
+            <div class="recent-choices">
+                <h3><i class="fas fa-clock"></i> 最近选择</h3>
+                <div id="recent-list" class="recent-list">
+                    <div class="empty-state">暂无记录</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with <i class="fas fa-heart" style="color: #f4af1b;"></i> | 你的专属食物选择器</p>
+        </footer>
+    </div>
+
+    <!-- 食物列表模态框 -->
+    <div id="food-list-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2><i class="fas fa-utensils"></i> 我的美食列表</h2>
+            <div class="search-box">
+                <input type="text" id="search-food" placeholder="搜索食物...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div id="food-list" class="food-list"></div>
+            <div class="modal-actions">
+                <button id="reset-btn" class="btn secondary">恢复默认</button>
+                <button id="clear-btn" class="btn danger">清空自定义</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
