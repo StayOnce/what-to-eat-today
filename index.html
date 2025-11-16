@@ -33,14 +33,12 @@
                     随机选择
                 </button>
                 <div class="secondary-buttons">
-                    <button id="add-btn" class="btn secondary">
-                        <i class="fas fa-plus"></i>
-                        添加食物
-                    </button>
-                    <button id="list-btn" class="btn secondary">
-                        <i class="fas fa-list"></i>
-                        查看列表
-                    </button>
+                    <div class="secondary-buttons">
+                        <button id="contact-btn" class="btn secondary">
+                            <i class="fas fa-envelope"></i>
+                            添加食物请联系小赵
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -79,23 +77,6 @@
         <footer>
             <p>Made with <i class="fas fa-heart" style="color: #f4af1b;"></i> | 你的专属食物选择器</p>
         </footer>
-    </div>
-
-    <!-- 食物列表模态框 -->
-    <div id="food-list-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2><i class="fas fa-utensils"></i> 我的美食列表</h2>
-            <div class="search-box">
-                <input type="text" id="search-food" placeholder="搜索食物...">
-                <i class="fas fa-search"></i>
-            </div>
-            <div id="food-list" class="food-list"></div>
-            <div class="modal-actions">
-                <button id="reset-btn" class="btn secondary">恢复默认</button>
-                <button id="clear-btn" class="btn danger">清空自定义</button>
-            </div>
-        </div>
     </div>
 
     <script src="script.js"></script>

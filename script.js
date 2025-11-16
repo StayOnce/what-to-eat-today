@@ -1,26 +1,27 @@
 // 专属食物列表（包含你的具体选项）
 const defaultFoods = [
-    "🍔 今天奖励自己吃顿麦当劳吧",
-    "🍚 大米先生",
-    "🍜 醉面",
-    "🐔 紫燕百味鸡",
-    "🐷 猪脚饭",
-    "🌶️ 重庆小面",
-    "🍜 河南烩面",
-    "🔥 烤盘饭",
-    "🥘 卤汁肴",
-    "🏮 民族窗口",
-    "🍱 智园小站",
-    "🐟 水煮鱼",
-    "🍲 麻辣烫",
-    "🐠 五谷渔粉",
-    "🥔 土豆泥",
-    "🥬 自选菜",
-    "🍗 大盘鸡面",
-    "🥘 铁锅炖",
-    "🍜 螺蛳粉",
-    "🍛 吾里香",
-    "🎯 尝尝新的"
+    "今天奖励自己吃顿麦当劳吧",
+    "大米先生",
+    "醉面",
+    "紫燕百味鸡",
+    "猪脚饭",
+    "重庆小面",
+    "河南烩面",
+    "烤盘饭",
+    "卤汁肴",
+    "民族窗口",
+    "智园小站",
+    "水煮鱼",
+    "麻辣烫",
+    "五谷渔粉",
+    "土豆泥",
+    "自选菜",
+    "大盘鸡面",
+    "铁锅炖",
+    "螺蛳粉",
+    "吾里香",
+    "东门小吃街",
+    "尝尝新的"
 ];
 
 // 食物图标映射
@@ -45,6 +46,7 @@ const foodIcons = {
     '铁锅炖': '🥘',
     '螺蛳粉': '🍜',
     '吾里香': '🍛',
+    "东门小吃街":'🤓☝️',
     '尝尝新的': '🎯'
 };
 
@@ -209,38 +211,7 @@ class FoodChooser {
         const isWeekend = this.isWeekend();
 
         document.getElementById('date-display').innerHTML =
-            `${dateString} ${isWeekend ? '🎉 周末' : '📅 工作日'}`;
-    }
-
-    addCustomFood() {
-        const food = prompt('请输入要添加的食物：');
-        if (food && food.trim() !== '') {
-            this.foods.push(food.trim());
-            this.saveFoods();
-            this.showNotification('添加成功！');
-        }
-    }
-
-    searchFoods(keyword) {
-        const foodListElement = document.getElementById('food-list');
-        const filteredFoods = this.foods.filter(food =>
-            food.toLowerCase().includes(keyword.toLowerCase())
-        );
-
-        foodListElement.innerHTML = filteredFoods.map((food, index) => {
-            const originalIndex = this.foods.indexOf(food);
-            const isSpecial = food.includes('麦当劳');
-            const isDefault = defaultFoods.includes(food);
-            return `
-                <div class="food-item ${isSpecial ? 'special' : ''}">
-                    <div>
-                        <span>${food}</span>
-                        ${isSpecial ? '<br><small style="color: #666;">周末概率提升</small>' : ''}
-                    </div>
-                    ${!isDefault ? `<button class="delete-food" onclick="foodChooser.deleteFood(${originalIndex})">删除</button>` : ''}
-                </div>
-            `;
-        }).join('');
+            `${dateString} ${isWeekend ? '🎉周末' : '📅工作日'}`;
     }
 
     showFoodList() {
@@ -250,29 +221,6 @@ class FoodChooser {
         modal.style.display = 'block';
     }
 
-    deleteFood(index) {
-        const food = this.foods[index];
-        if (defaultFoods.includes(food)) {
-            this.showNotification('默认食物不能删除哦！');
-            return;
-        }
-
-        if (confirm(`确定要删除"${food}"吗？`)) {
-            this.foods.splice(index, 1);
-            this.saveFoods();
-            this.showFoodList();
-            this.showNotification('删除成功！');
-        }
-    }
-
-    clearCustomFoods() {
-        if (confirm('确定要清空所有自定义食物吗？')) {
-            this.foods = [...defaultFoods];
-            this.saveFoods();
-            this.showFoodList();
-            this.showNotification('已清空自定义食物！');
-        }
-    }
 
     resetToDefault() {
         if (confirm('确定要恢复默认食物列表吗？')) {
